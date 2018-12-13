@@ -21,6 +21,16 @@ public class tileGeneratorScript : MonoBehaviour {
             //Set the position of the tree relative to this start point
             newTile.transform.parent = transform;
             newTile.transform.localPosition = new Vector3(i*(9.6f*newTile.transform.localScale.x), -(5.4f / 3f), 0);
+
+            //Set the tile's type
+            if (i == numberOfTiles-1)
+            {
+                //Set the last tile to have the 'end' tile type
+                newTile.GetComponent<tileScript>().tileType = tileScript.TileType.end;
+            } else {
+                // This sets the tile to a random TileType. This is too random, should be changed.
+                newTile.GetComponent<tileScript>().tileType = (tileScript.TileType)Random.Range(0, 3);
+            }
         }
 
         //Resize the collider (for cinemachine) to the size of the level

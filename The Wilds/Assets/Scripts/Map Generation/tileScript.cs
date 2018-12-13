@@ -8,6 +8,9 @@ public class tileScript : MonoBehaviour {
 
     [SerializeField] int numberOfTrees;
 
+    public enum TileType {normal, stalk, attack, ambush, end};
+    public TileType tileType;
+
 	// Use this for initialization
 	void Start () {
 
