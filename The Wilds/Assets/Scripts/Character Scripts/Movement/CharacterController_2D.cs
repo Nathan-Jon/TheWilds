@@ -20,6 +20,7 @@ public class CharacterController_2D : MonoBehaviour
     float speed;
     // Use this for initialization
 
+     public float GetSpeed { get { return speed;  } set { speed = value; } }
 
     void Start()
     {
