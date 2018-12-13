@@ -43,6 +43,7 @@ public class wolfScript : MonoBehaviour {
             //Somewhere here should flip the sprite to face towards the player
 
             case WolfState.stalking:
+                //When stalking, the wolf's sprite should be facing TOWARD the player
                 float currentDistance = Vector2.Distance(transform.position, playerPosition.position);
                 //Move towards player if far away, move away if close. Following player threateningly without really interacting with them
                 if (currentDistance > stalkDistance + stalkDistanceAllowance)
@@ -65,12 +66,22 @@ public class wolfScript : MonoBehaviour {
                 {
                     //Do damage to the player
                     //playerPosition.GetComponent<playerScript>().takeDamage(20); // for example. This could be a "wolfAttack" function or something if you want
-                    //Once the player is hit, move to 'avoiding' or 'stalking' behaviour, I haven't decided which is more appropriate yet
-                    wolfState = WolfState.stalking;
+                    //Once the player is hit, move to 'avoiding'
+                    wolfState = WolfState.avoiding;
                 }
                 break;
             case WolfState.avoiding:
-                //This behaviour could be used for avoiding either the player or campfires
+                //When 'avoiding' the wolf's sprite should be facing AWAY FROM the player
+                //Keep running until away from the player
+                if (Vector2.Distance(transform.position, playerPosition.position) < stalkDistance)
+                {
+                    //Run away from the player
+                    rb.AddForce((transform.position - playerPosition.position)*2);
+                } else
+                {
+                    //Now that the wolf has escaped, go back to stalking
+                    wolfState = WolfState.stalking;
+                }
 
                 break;
             default:
