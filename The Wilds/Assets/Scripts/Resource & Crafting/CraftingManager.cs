@@ -29,7 +29,7 @@ public class CraftingManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Instantiate(craftable[0].Prefab, new Vector2(player.transform.position.x,
-                player.transform.position.y - (player.GetComponent<BoxCollider2D>().size.y/2f)),
+                player.transform.position.y - (player.GetComponent<BoxCollider2D>().size.y/4f)),
                 Quaternion.identity, WorldCrafted.transform);
         }
     }

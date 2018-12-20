@@ -93,6 +93,6 @@ public class Inventory : MonoBehaviour, IInventory
         //UIPrefab.GetComponentInChildren<RawImage>().texture = res.Texture;
         ALERT.GetComponentInChildren<Image>().sprite = res.Sprite;
         //Attach the float and fade script to the alert ui object
-        ALERT.AddComponent<FloatAndFadeScript>().Initialise(2.5f, 1f,1f);
+        ALERT.AddComponent<FloatAndFadeScript>().Initialise(1.3f, 1f,1f);
     }
 }

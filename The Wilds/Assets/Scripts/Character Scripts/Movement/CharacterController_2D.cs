@@ -33,7 +33,7 @@ public class CharacterController_2D : MonoBehaviour
 
         //set the position to current position + direction * speed
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-            gameObject.transform.position = new Vector2(gameObject.transform.position.x + (moveHorizontal * speed), gameObject.transform.position.y + (moveVertical * speed));
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x + (moveHorizontal * speed), gameObject.transform.position.y + (moveVertical * speed),gameObject.transform.position.z);
         else gameObject.transform.position = gameObject.transform.position;
 
 
