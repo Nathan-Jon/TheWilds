@@ -20,7 +20,7 @@ TagManager:
   - 
   - 
   - Characters
-  - 
+  - Tree
   - 
   - 
   - 
@@ -41,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2152443739
+    locked: 0
+  - name: Player
+    uniqueID: 3697809305
+    locked: 0
+  - name: Tree & Resource
+    uniqueID: 4168619843
     locked: 0
