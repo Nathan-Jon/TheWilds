@@ -51,3 +51,9 @@ TagManager:
   - name: Tree & Resource
     uniqueID: 4168619843
     locked: 0
+  - name: New Layer
+    uniqueID: 3140460287
+    locked: 0
+  - name: Snow
+    uniqueID: 1100230685
+    locked: 0

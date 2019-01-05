@@ -14,7 +14,7 @@ public class Craftable : ScriptableObject {
     //Name
     [SerializeField] private string name;
     //ResourceCost
-    [SerializeField] private string resourceType;
+    [SerializeField] private string resourceType;   
     //ResourceCost
     [SerializeField] private float cost;
     //Prefab
