@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 114955043571016720}
   - component: {fileID: 70280969710177030}
   - component: {fileID: 50763522267923904}
+  - component: {fileID: 114624168958590416}
+  - component: {fileID: 114386939372953322}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -78,6 +80,30 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.3}
   m_Size: {x: 3, y: 0.2}
   m_Direction: 1
+--- !u!114 &114386939372953322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261245802146528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d7706676156ed44a7cd8d51bb06d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 2
+  maxHealth: 2
+--- !u!114 &114624168958590416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261245802146528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35843676d3892374d901268b228bd7b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114955043571016720
 MonoBehaviour:
   m_ObjectHideFlags: 1

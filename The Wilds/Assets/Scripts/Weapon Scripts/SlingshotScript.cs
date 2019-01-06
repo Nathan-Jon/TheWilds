@@ -16,6 +16,9 @@ public class SlingshotScript : MonoBehaviour
     [SerializeField] float bulletForce;
     [SerializeField] float bulletDamage;
 
+    enum SelectableWeapon { Bow, Shotgun };
+    SelectableWeapon SelectedWeapon;
+
 
     void Start()
     {
@@ -54,6 +57,7 @@ public class SlingshotScript : MonoBehaviour
     }
 
 
+
     // Update is called once per frame
     void Update()
     {
@@ -61,6 +65,28 @@ public class SlingshotScript : MonoBehaviour
         {
             //Debug.Log("Shot fired!");
             shoot();
+        }
+
+        //Switch weapons
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SelectedWeapon = SelectableWeapon.Bow;
+        } else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SelectedWeapon = SelectableWeapon.Shotgun;
+        }
+
+        //Functionality based on selected weapon
+        switch (SelectedWeapon)
+        {
+            case SelectableWeapon.Bow:
+                bulletForce = 100;
+                bulletDamage = 1;
+                break;
+            case SelectableWeapon.Shotgun:
+                bulletForce = 1000;
+                bulletDamage = 3;
+                break;
         }
     }
 }

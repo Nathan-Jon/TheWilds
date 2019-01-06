@@ -29,12 +29,17 @@ public class Bullet : MonoBehaviour {
         }
 
         //Detect if collision object implements IDamageable
-        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+        IDamageable damageable = collision.gameObject.GetComponent<HealthScript>();
         if (damageable!=null)
         {
+            //Debug message for amount of damage dealt
+            //Debug.Log("Hit! for " + damageVal + " damage");
+
+            //call the change health method from the damageable interface
+            damageable.ChangeHealth(-damageVal);
+
             Destroy(gameObject);
-            //call teh change health method from the damageable interface
-            damageable.ChangeHealth(damageVal);
+            
         }
     }
 }
