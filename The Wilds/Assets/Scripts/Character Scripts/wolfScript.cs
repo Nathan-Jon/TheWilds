@@ -17,8 +17,8 @@ public class wolfScript : MonoBehaviour {
 
     [SerializeField] Transform playerPosition;
 
-    enum WolfState { stalking, attacking, avoiding };
-    WolfState wolfState = WolfState.stalking;
+    public enum WolfState { stalking, attacking, avoiding };
+    public WolfState wolfState = WolfState.stalking;
 
     //This number is the distance that a wolf will stalk the player at when they're trying not to interact with the player
     private float stalkDistance = 8.5f;

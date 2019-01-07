@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212018039686967374}
   - component: {fileID: 114331544518413550}
   - component: {fileID: 61164843709181538}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: 960x1080
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treePrefab: {fileID: 1155940148339500, guid: ebd83ec153e95954e9e45356b2997654, type: 2}
   numberOfTrees: 4
+  tileType: 0
 --- !u!212 &212018039686967374
 SpriteRenderer:
   m_ObjectHideFlags: 1
