@@ -19,7 +19,7 @@ public class WolfManagerScript : MonoBehaviour {
 
         if (wolves.Count < 5)
         {
-            wolves.Add(Instantiate(wolfPrefab, new Vector3(-4, 0, -1), Quaternion.identity));
+            wolves.Add(Instantiate(wolfPrefab, new Vector3(-4, Random.Range(-5f, 1.4f), -1), Quaternion.identity));
         }
 		
 	}
