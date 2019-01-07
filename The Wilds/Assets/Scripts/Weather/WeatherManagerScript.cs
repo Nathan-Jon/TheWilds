@@ -15,6 +15,8 @@ public class WeatherManagerScript : MonoBehaviour, IWeatherManager
     WeatherStates weather;
     WeatherStates CurrentWeather;
 
+    ParticleSystem particles;
+
     //variables for the weather temperatures
     [SerializeField] float CurrentTemp;
     [SerializeField] float CalmTemp;
@@ -42,6 +44,7 @@ public class WeatherManagerScript : MonoBehaviour, IWeatherManager
     private void Start()
     {
         GameObject.FindGameObjectWithTag("Player").AddComponent<TemperatureHealthScript>().Initialise(this);
+        particles = GameObject.Find("Particle System").GetComponent<ParticleSystem>();
 
         //initialise the weather state
         if (weather != WeatherStates.Calm)
@@ -74,6 +77,7 @@ public class WeatherManagerScript : MonoBehaviour, IWeatherManager
             case WeatherStates.Calm:
                 GameObject.Find("WeatherText").gameObject.GetComponent<Text>().text = "calm";
                 CurrentTemp = CalmTemp;
+                particles.gameObject.SetActive(false);
                 //Update the UI state
 
                 if (time >= 3)
@@ -93,9 +97,12 @@ public class WeatherManagerScript : MonoBehaviour, IWeatherManager
             case WeatherStates.SnowStorm:
                 CurrentTemp = StormTemp;
                 GameObject.Find("WeatherText").gameObject.GetComponent<Text>().text = "Storm";
+                particles.gameObject.SetActive(true);
 
                 if (time >= 3)
+                {
                     weather = WeatherStates.Calm;
+                }   
                 //Update UI State
 
                 break;
@@ -119,13 +126,10 @@ public class WeatherManagerScript : MonoBehaviour, IWeatherManager
     private void Update()
     {
 
-        //insert conditions for weather changes
+        //NEEDS BETTER CONDITIONS FOR WEATHER CHANGES
         //<---------------- Need better conditions ------------->
         time += Time.deltaTime;
 
         ManageStates();
-
-
-
     }
 }
