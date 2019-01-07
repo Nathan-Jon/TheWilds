@@ -15,6 +15,8 @@ public class WeatherManagerScript : MonoBehaviour, IWeatherManager
     WeatherStates weather;
     WeatherStates CurrentWeather;
 
+    TemperatureHealthScript health;
+    
     ParticleSystem particles;
 
     //variables for the weather temperatures
@@ -44,6 +46,7 @@ public class WeatherManagerScript : MonoBehaviour, IWeatherManager
     private void Start()
     {
         GameObject.FindGameObjectWithTag("Player").AddComponent<TemperatureHealthScript>().Initialise(this);
+        health = GameObject.FindGameObjectWithTag("Player").GetComponent<TemperatureHealthScript>();
         particles = GameObject.Find("Particle System").GetComponent<ParticleSystem>();
 
         //initialise the weather state
@@ -120,6 +123,7 @@ public class WeatherManagerScript : MonoBehaviour, IWeatherManager
         if (_weather != CurrentWeather)
         {
             CurrentWeather = weather;
+            health.Temperature = CurrentTemp;
             time = 0;
         }
     }

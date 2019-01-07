@@ -10,6 +10,8 @@ public class TemperatureHealthScript : MonoBehaviour
     Image ThermostatUI;
     IWeatherManager weatherManager;
 
+    float temperature;
+
     IFire fire;
 
     [SerializeField] float TickTime;
@@ -22,6 +24,7 @@ public class TemperatureHealthScript : MonoBehaviour
     float fireTemp;
 
     public float FireHeat { get { return fireTemp; } set { fireTemp = value; } }
+    public float Temperature { get { return temperature; } set { temperature = value; } }
     // Use this for initialization
     void Start()
     {
@@ -43,8 +46,8 @@ public class TemperatureHealthScript : MonoBehaviour
     {
         if (currentVal <= maxVal)
         {
-            currentVal += (weatherManager.Temperature + fireTemp);
-            Debug.Log(weatherManager.Temperature + " + " + fireTemp + " = " + (weatherManager.Temperature + fireTemp));
+            currentVal += (temperature + fireTemp);
+            Debug.Log(temperature + " + " + fireTemp + " = " + (temperature + fireTemp));
 
             if (currentVal >= maxVal)
                 currentVal = maxVal;
