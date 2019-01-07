@@ -35,13 +35,14 @@ public class Inventory : MonoBehaviour, IInventory
 
     //Array to hold the resource Ui objects in the scene - added in the unity editor
     [SerializeField] private GameObject[] gameObjectsArray;
+    List<Resource> Resources;
 
 
     private void Awake()
     {
         //Attach the pick up script to the player and pass the inventory to it
         GameObject.FindGameObjectWithTag("Player").AddComponent<PickUpScript>().Inventory = this;
-
+        Resources = new List<Resource>();
     }
 
     /// <summary>
@@ -50,10 +51,6 @@ public class Inventory : MonoBehaviour, IInventory
     /// <param name="res"></param>
     public void CollectedItem(Resource res)
     {
-
-        //<------------------------------There has to be a more efficient way of doing this -------------------------------------------------->
-
-        //each if statement increases  respected resource float based on resource value then updates ther resource UI 
 
         if (res.getResourceID == "Wood")
         {
@@ -81,6 +78,29 @@ public class Inventory : MonoBehaviour, IInventory
     }
 
     /// <summary>
+    /// Subtract cost from the inventory variables
+    /// </summary>
+    /// <param name="cost"></param>
+    public void SubtractResource(string id, float cost)
+    {
+        if (id == "Wood")
+        {
+            Wood -= cost;
+            gameObjectsArray[0].GetComponentInChildren<Text>().text = " - " + wood;
+        }
+        if (id == "Arrow")
+        {
+            Arrows -= cost;
+            gameObjectsArray[1].GetComponentInChildren<Text>().text = " - " + wood;
+        }
+        if (id == "Oil")
+        {
+            Oil -= cost;
+            gameObjectsArray[2].GetComponentInChildren<Text>().text = " - " + wood;
+        }
+    }
+
+    /// <summary>
     /// instantiates an alert ui which appears in the center of the UI canvas
     /// </summary>
     /// <param name="res"></param>
@@ -93,6 +113,6 @@ public class Inventory : MonoBehaviour, IInventory
         //UIPrefab.GetComponentInChildren<RawImage>().texture = res.Texture;
         ALERT.GetComponentInChildren<Image>().sprite = res.Sprite;
         //Attach the float and fade script to the alert ui object
-        ALERT.AddComponent<FloatAndFadeScript>().Initialise(1.3f, 1f,1f);
+        ALERT.AddComponent<FloatAndFadeScript>().Initialise(1.3f, 1f, 1f);
     }
 }

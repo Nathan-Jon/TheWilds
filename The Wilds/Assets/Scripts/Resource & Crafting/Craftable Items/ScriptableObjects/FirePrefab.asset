@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Fire
   resourceType: Wood
-  cost: 1
+  cost: 3
   craftableObjectprefab: {fileID: 1471512615112416, guid: fba7f23b41169ab4f9b051540515bb9f,
     type: 2}

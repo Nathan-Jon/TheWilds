@@ -14,5 +14,7 @@ public interface IInventory  {
 	float Arrows { get; set; }
 
     void CollectedItem(Resource res);
+    void SubtractResource(string id, float cost);
+
 
 }
