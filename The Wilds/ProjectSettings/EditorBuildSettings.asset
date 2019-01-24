@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test Bench Base.unity
     guid: 6e7b232355fd0d54992c0ed7d7f41d11
+  - enabled: 1
+    path: Assets/Scenes/EndGame Menu.unity
+    guid: 75de5371f5e744248a45654058fcc996
   m_configObjects: {}
